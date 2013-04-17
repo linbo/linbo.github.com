@@ -550,3 +550,10 @@ img.maruku-png { }
 #title{
     margin-top: 25px;
 }
+
+#item{
+    border-style: solid;
+    border-color: silver;
+    border-width: 1px;
+    padding: 10px;
+}
