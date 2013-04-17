@@ -99,11 +99,11 @@ svscanboot,9134 /command/svscanboot
 现在nginx和tornado都被daemontool管理起来了，试试看杀掉tornado应用进程看看
 
 ```bash
-    root@precise32:/service# kill 91    65
-    root@precise32:/service# !ps
-    ps -ef|grep tor
-    root          9164  9136  0 04:06 pts/2    00:00:00 supervise tornado
-    root          9181  9164  2 04:09 pts/2    00:00:00 python /home/vagrant/tornado/main.py
+root@precise32:/service# kill 9165
+root@precise32:/service# !ps
+ps -ef|grep tor
+root          9164  9136  0 04:06 pts/2    00:00:00 supervise tornado
+root          9181  9164  2 04:09 pts/2    00:00:00 python /home/vagrant/tornado/main.py
 ```
 
 可以看到，虽然手动kill掉了tornado应用，但是daemontool自动将应用重新启动起来了
