@@ -547,13 +547,25 @@ img.maruku-png { }
 	color:#FFF;
 }
 
-#title{
-    margin-top: 25px;
+#home{
+    margin: 100px;
+    margin-top: 70px;
 }
 
-#item{
-    border-style: solid;
-    border-color: silver;
-    border-width: 1px;
-    padding: 10px;
+.item{
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+
+.pubdate{
+    padding-right: 40px;
+}
+
+.previous, next{
+    float: left;
+    padding-right: 30px;
+}
+
+.pagination{
+    padding-left: 100px;
 }

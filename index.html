@@ -1,32 +1,49 @@
 ---
 layout: default
-title: Blog
+title: Linbo的博客
 ---
 
-{% for post in paginator.posts %}
+<div id="home">
+        {% for post in paginator.posts %}
+        <div class="item">
+            <span class="pubdate">
+                {{ post.date | date: "%Y-%m-%d" }}
+            </span>
+            <span class="pubtitle">
+                <a href="{{ post.url }}">
+                    {{ post.title }}
+                </a>
+            </span>
+        </div>
+        {% endfor %}
 
-   <!-- here add you post markup -->
-   <div id="title">
-   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-   </div>
-   <div id="item">
-  <div class="content">
-    {{ post.content }}
-  </div>
-  </div>
-{% endfor %}
 
-<!-- Pagination links -->
-<div class="pagination">
+<div id="post-pagination" class="pagination">
+
   {% if paginator.previous_page %}
-    <a href="/page{{paginator.previous_page}}" class="previous">Previous</a>
+  <p class="previous">
+    {% if paginator.previous_page == 1 %}
+    <a href="/">前一页</a>
+    {% else %}
+    <a href="/page{{paginator.previous_page}}/">前一页</a>
+    {% endif %}
+  </p>
   {% else %}
-    <span class="previous">Previous</span>
+  <p class="previous disabled">
+    <span>前一页</span>
+  </p>
   {% endif %}
-  <span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
+
   {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}" class="next ">Next</a>
+  <p class="next">
+    <a href="/page{{paginator.next_page}}/">后一页</a>
+  </p>
   {% else %}
-    <span class="next ">Next</span>
+  <p class="next disabled">
+    <span>后一页</span>
+  </p>
   {% endif %}
+
 </div>
+</div>
+
