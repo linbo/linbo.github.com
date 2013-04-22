@@ -5,6 +5,7 @@ title: Linbo的博客
 
 <div id="home">
         {% for post in paginator.posts %}
+        {% unless post.title contains "Weekly" %}
         <div class="item">
             <span class="pubdate">
                 {{ post.date | date: "%Y-%m-%d" }}
@@ -15,6 +16,7 @@ title: Linbo的博客
                 </a>
             </span>
         </div>
+        {% endunless %}
         {% endfor %}
 
 
