@@ -96,7 +96,7 @@ sup { line-height: 1ex; }
 }
 */
 
-/* @group FancyFirst */
+/* @group FancyFirst 
 .emphnext + p:first-letter, p.emphfirst:first-letter {
 	font-size: 48px;
 	padding: 0 0.15em 0 0;
@@ -109,7 +109,7 @@ sup { line-height: 1ex; }
 	font-variant: small-caps;
 	font-size: larger;
 }
-/* @end */
+ @end */
 
 .right { float: right; clear: left; }
 .left { float: left; clear: right; }
@@ -568,4 +568,10 @@ img.maruku-png { }
 
 .pagination{
     padding-left: 100px;
+}
+
+#about{
+    margin-top: 70px;
+    margin-left: 100px;
+    margin-bottom: 50px;
 }

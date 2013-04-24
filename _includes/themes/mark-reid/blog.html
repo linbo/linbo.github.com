@@ -16,10 +16,14 @@
   
   <div class="prev-next">
   {% if page.next %}
+  {% unless page.next.title contains "Weekly" %}
   <a href="{{ page.next.url }}" class="next" title="{{ page.next.title }}">{{page.next.title}} &rarr;</a>
+  {% endunless %}
   {% endif %}
   {% if page.previous %}
+  {% unless page.previous.title contains "Weekly" %}
   <a href="{{ page.previous.url }}" class="prev" title="{{ page.previous.title }}">&larr; {{page.previous.title}}</a>
+  {% endunless %}
   {% endif %}
   </div>
 

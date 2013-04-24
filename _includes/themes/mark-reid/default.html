@@ -32,7 +32,11 @@
   
   <div id="header">
     <h1>
+        {% if page.title contains "Weekly" %}
+    	<a href="/weekly.html" title="{{ page.title }}">LinboWeekly</a>
+        {% else %}
     	<a href="{{ HOME_PATH }}" title="{{ site.title }}">{{ site.title }}</a>
+        {% endif %}
     </h1>
     <ul class="nav">
       <li><a class="home" href="{{ HOME_PATH }}">Home</a></li>
@@ -40,6 +44,7 @@
       <li><a  href="/categories.html">Categories</a></li>
       <li><a  href="/tags.html">Tags</a></li>
       <li><a  href="/weekly.html">Weekly</a></li>
+      <li><a  href="/about.html">about</a></li>
     </ul>
   </div>
 
