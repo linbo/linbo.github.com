@@ -2,7 +2,7 @@
 layout: blog
 title: "娃的哭声"
 description: ""
-category: 
+category: 随笔
 tags: 
     - 教育
     - 文
