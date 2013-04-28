@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: "娃的哭声"
 description: ""
 category: 随笔

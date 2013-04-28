@@ -2,8 +2,9 @@
 layout: post
 title: "Weekly Issue 1"
 description: ""
-category: weekly
-tags: []
+category: Weekly
+tags: 
+    - Weekly
 ---
 {% include JB/setup %}
 
