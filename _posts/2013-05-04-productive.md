@@ -21,10 +21,10 @@ tags:
 
 下面这些软件，至少应该尝试一下，毕竟我觉得它们是价值软件的代表。
 
-** [Everything](http://www.voidtools.com/) （Windows平台）**  
+**[Everything](http://www.voidtools.com/) （Windows平台）**  
 我觉得Windows平台，就这一款软件让我有点恋恋不舍。Everything是搜索文件的，记得没有Everything之前，我在Windows里搜个文件，没有**十分钟**是搞不定的，用Everything**十秒**解决问题。如果看了本文你还用默认的文件搜索功能，那你看我文章干什么？
 
-** [Sublime Text2](http://www.sublimetext.com/) （程序员专用）**  
+**[Sublime Text2](http://www.sublimetext.com/) （程序员专用）**  
 在遥远的古世纪，计算机世界存在着两件上古神器，一件是神的编辑器Emacs，一件是编辑器之神Vim。这两件神器就如同倚天屠龙一样，骇客们为之疯狂，为之着迷，如果修炼得手，基本上你可以号令江湖了。
 
 但是这两件神器修炼之路如同难于上青天的蜀道，我等普通大众实在难以享受。当年我修炼Vim的时候，花了半小时时间把Vim tutor过了一遍，然后在一个星期之内，只要用文本编辑的任务，我都用Vim，反复使用Vim tutor上面的命令，这才入门的，到现在我只能说我略懂Vim，连熟悉都不敢说。而且从我个人经验来看，周围能把Vim使用的出神入化的还真没有看到，我虽然很菜，但是水平超过我的，还真没有见到几个人。
@@ -33,7 +33,7 @@ tags:
 
 至于为什么推荐编辑器呢，因为这些神器可以把你的思考平滑的记录下来。如果你用其它编辑器，你的思考到文本之间，会被编辑器给阻挠，打断，最后流失。
 
-** Chrome **  
+**Chrome**  
 快、简洁、安全，这是我对Chrome的评价。以前Firefox快，所以我抛弃了IE，以前Firefox安全，我抛弃了IE。我已好久不用Firefox了，因为它越来越臃肿了。如果你想体验飞一般的速度，清晰简洁的界面，不用担心安全问题，尝试chrome吧。
 
 如果你不常用Chrome，也应该偶尔用用，不行用Firefox，如果要访问什么银行之类的网站，用自带的IE。不要使用什么360之类的浏览器了，因为那不安全。记住，**一个公司永远在嚷嚷世界有安全问题，这家公司的产品是最不安全的**
@@ -45,17 +45,17 @@ tags:
 
 云端软件有一个非常好的特性，支持不同的客户端。你可以使用电脑、手机、平板做数据分享，知识整理等等
 
-** [Evernote](https://evernote.com/intl/zh-cn/) **  
+**[Evernote](https://evernote.com/intl/zh-cn/)**  
 这是一款笔记软件，有Windows、Mac、手机、平板客户端，Chrome/Firefox插件。这是碎片化知识收集的高效软件，如果你突然有什么好的想法，看到什么好的新闻，好的文章，好的图片，好的。。。。你都可以通过客户端保存起来。换句话说，它可以把你碎片化的知识集中保存在一个地方，等你有时间可以慢慢整理。
 
 当然Evernote可不仅仅用来做知识收集的，还有很多好用的功能，这个需要自己挖掘了。如果你要用Evernote，请使用国际版本的，印象笔记？我不知道
 
-** [Dropbox](https://www.dropbox.com/) **  
+**[Dropbox](https://www.dropbox.com/)**  
 Dropbox是数据共享的软件，如果你还在通过Email，U盘，各种硬件存储来共享数据，该考虑考虑用Dropbox了。现在的我，有事没事就把一些书籍，代码，照片往上面仍，丝毫不担心哪天我硬盘坏了，造成数据丢失。
 
 当然Dropbox也有丰富的客户端，重要的是还有Linux客户端，业界良心啊。其实Dropbox不仅仅用作网盘这么简单了，它还有更多的功能，比如这篇[妙用Dropbox](http://blog.liumiao.com/post/47752340048/dropbox)。缺点是Dropbox空间大小不是很多，而且同类产品也不少，比如[box](http://box.com/)，[copy](https://www.copy.com/home/?r=OnOehO&signup=1);还有就是代表人类先进生产力的产品，在天朝经常莫名其妙的消失，当然如果你有翻墙能力，这个也不是什么缺点。但我现在还是Dropbox重度用户，因为它的客户端太好用了。
 
-** [pocket](getpocket.com) **  
+**[pocket](getpocket.com)**  
 看到一篇好文章，做离线存储？你out了，赶紧用[pocket](http://getpocket.com/)，这是我最近用的最多的一款软件，每天浏览网页看到好文章，通过chrome插件保存它，通过手机、平板的分享功能保存它，我的[Weekly](http://linbo.github.io/weekly.html)全靠它了。小道君的文章[碎片化时间与我的阅读习惯](http://hutu.me/606)里有介绍。
 
 # why
