@@ -2,10 +2,10 @@
 layout: post
 title: "读史读政治"
 description: ""
-category: 读书笔记
+category: 随笔
 tags: 
    - 文
-   - 读书笔记
+   - 读书
 ---
 {% include JB/setup %}
 
