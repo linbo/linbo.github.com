@@ -4,8 +4,8 @@ title: "Vagrant改变boxes存放路径"
 description: ""
 category: IT
 tags: 
-    - vagrant
-    - vm
+    - Vagrant
+    - tool
     - 工
 ---
 {% include JB/setup %}

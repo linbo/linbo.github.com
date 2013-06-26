@@ -4,10 +4,9 @@ title: "Vagrant初探"
 description: "Vagrant 介绍"
 category: IT
 tags: 
-    - vagrant
+    - Vagrant
     - tool
     - 工
-    - vm
     - ruby
 ---
 {% include JB/setup %}
