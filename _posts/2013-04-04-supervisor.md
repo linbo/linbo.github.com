@@ -4,7 +4,7 @@ title: "进程的守护神 - Supervisor"
 description: ""
 category: IT
 tags: 
-    - python
+    - Python
     - 工
     - tool
 ---
