@@ -99,3 +99,14 @@ select * from ( select rownum rn, a.* from table_name a  where rownum <=10) wher
 ```
 
 没了，暂时这么多估计够用了，不够再写吧
+
+# cx_Oracle如何在cgi里面生效
+用apache运行python cgi脚本，发现cx_Oracle无法使用，查了一下，原来环境变量没有在apache环境里生效
+
+```bash
+# cat /etc/ld.so.conf.d/oracle.conf 
+/usr/lib/oracle/11.2/client64/lib
+
+# lsconfig
+```
+然后就可以了
