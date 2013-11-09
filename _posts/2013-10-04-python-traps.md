@@ -12,9 +12,9 @@ tags:
 其实各个语言都有坑，用得少了，便远在天边，用得久了，便近在眼前。这不，Python的坑们也纷纷拱手相认，互道珍重了。
 
 # Logging
-Python的标准库提供了非常强大的Logging功能，Django于是借了东风，直接拿标准库的来用了。可是以前只是略知皮毛，忘记[RTFM](http://zh.wikipedia.org/zh-cn/RTFM)，结果惨象横生，差点尸体遍野了。
+Python的标准库提供了非常强大的Logging功能，Django于是借了东风，直接拿标准库的来用了。可是以前只是略知皮毛，忘记[RTFM](http://zh.wikipedia.org/zh-cn/RTFM)，结果惨象横生，差点尸横遍野了。
 
-Django+uwsig那是标配(当然还有Gunicorn与之竞争)，所以每个uwsgi起了多个Django进程，粗心大意的用了TimedRotatingFileHandler，然后悲剧就发生了。
+Django+uwsig那是标配(当然还有Gunicorn与之竞争)，所以每个uwsgi起了多个Django进程，粗心大意的用了[imedRotatingFileHandler](http://docs.python.org/2/library/logging.handlers.html#timedrotatingfilehandler)，然后悲剧就发生了。
 
 当天的日志那是相当的完美，一符一号，一子一句，一标一点都出现在了日志的文件里。可是以前的日志就惨了，只打印了第二天的部分日志，以前的日志全跑到九霄云外去了。
 
@@ -47,3 +47,6 @@ RTMF，发现这么[一段话](http://docs.python.org/2/library/socket.html#sock
 
 这就是一行代码引发的惨案！
 
+# Reference
+* [Python 多进程日志记录](http://blogread.cn/it/article/4175?f=wb2)
+* [mlogging](https://github.com/kies/mlogging)
