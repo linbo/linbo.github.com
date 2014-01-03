@@ -88,3 +88,6 @@ grep？ack？都不用了，用ag吧
 Vim插件实在是太多了，个人觉得，试用一下，觉得合适就多用用，不适合的，uninstall也费不了多少功夫的
 
 对了，还有好多插件了，等用的感觉不错了，再写续篇吧
+
+# 参考
+* [mastering Emmet](http://www.sitepoint.com/series/faster-workflow-mastering-emmet/)
