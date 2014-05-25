@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {1}给女孩的诗}{5}
+\contentsline {subsection}{女孩的美}{5}
+\contentsline {subsection}{墨镜}{5}
+\contentsline {subsection}{回应}{5}
+\contentsline {subsection}{悲剧·喜剧}{6}
+\contentsline {chapter}{\numberline {2}旅行}{7}
+\contentsline {subsection}{阳朔行}{7}
+\contentsline {subsection}{盘龙峡}{7}
+\contentsline {subsection}{踏青}{7}
+\contentsline {chapter}{\numberline {3}冷清秋}{9}
+\contentsline {subsection}{冷清秋}{9}
+\contentsline {subsection}{秋别}{9}
+\contentsline {subsection}{秋散}{9}
+\contentsline {subsection}{秋吟}{9}
+\contentsline {subsection}{秋晨}{10}
+\contentsline {chapter}{\numberline {4}学生年代}{11}
+\contentsline {subsection}{骆驼}{11}
+\contentsline {subsection}{爱情组诗}{11}
+\contentsline {subsection}{摩登时代}{12}
+\contentsline {subsection}{日子}{12}
+\contentsline {subsection}{梦}{13}
+\contentsline {subsection}{眼镜}{13}
+\contentsline {subsection}{思考}{13}
+\contentsline {chapter}{\numberline {5}波心荡}{15}
+\contentsline {subsection}{战书}{15}
+\contentsline {subsection}{天空的眼泪}{15}
+\contentsline {chapter}{\numberline {6}离别}{17}
+\contentsline {subsection}{别嘉定}{17}
+\contentsline {subsection}{别兄弟(一)}{17}
+\contentsline {subsection}{别兄弟(二)}{17}
+\contentsline {subsection}{别姐妹}{17}
+\contentsfinish 
