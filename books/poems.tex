@@ -1,4 +1,4 @@
-\documentclass[10pt, a4paper]{book}
+\documentclass[10pt, a4paper,oneside]{book}
 \usepackage[slantfont,boldfont]{xeCJK}
 \usepackage{verse}
 \usepackage{CJKnumb}
@@ -12,9 +12,9 @@
 
 \pagestyle{fancy}
 \fancyhf{}                    
-\fancyhead[RE]{\leftmark}
-\fancyhead[LO]{\rightmark}
-\fancyhead[LE,RO]{~\thepage~}
+%\fancyhead[RE]{\leftmark}
+\fancyhead[RE,RO]{\leftmark}
+\fancyhead[LE,LO]{~\thepage~}
 \fancyfoot[RO,RE]{\it 冷月无声}
 
 \renewcommand{\headrulewidth}{0.7pt}
@@ -47,5 +47,4 @@
 \input{school}
 \input{poetry}
 \input{goodbye}
-
 \end{document}

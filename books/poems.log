@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.5.20)  25 MAY 2014 22:05
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.5.20)  27 MAY 2014 10:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -974,6 +974,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 . <->"SimSun/ICU:script=hani;language=DFLT;embolden=4;slant=0.167;"
 .................................................
 
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 16.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 17.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 18.
+
 (/usr/local/texlive/2013/texmf-dist/tex/latex/titlesec/block.tss
 File: block.tss 2011/12/15
 ) (./poems.aux)
@@ -1071,7 +1083,7 @@ LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 31.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * hratio: 1:1
 * vratio: 1:1
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(119.50148pt, 358.5049pt, 119.5015pt)
 * v-part:(T,H,B)=(137.99586pt, 569.05511pt, 137.99586pt)
 * \paperwidth=597.50787pt
@@ -1079,13 +1091,13 @@ LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 31.
 * \textwidth=358.5049pt
 * \textheight=569.05511pt
 * \oddsidemargin=47.23149pt
-* \evensidemargin=47.2315pt
+* \evensidemargin=47.23149pt
 * \topmargin=35.65839pt
 * \headheight=12.0pt
 * \headsep=18.06749pt
 * \topskip=10.0pt
 * \footskip=25.29494pt
-* \marginparwidth=115.0pt
+* \marginparwidth=61.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
@@ -1093,8 +1105,8 @@ LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 31.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
@@ -1108,7 +1120,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 
-] [2] (./poems.toc
+] [1] (./poems.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -1117,40 +1129,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `poems.toc'.
 
- (./girls.tex [3
-
-] [4
+ (./girls.tex [2
 
 ]
 第\CJKnumber {1}章 1.
-[5]) (./travel.tex [6]
-第\CJKnumber {2}章 2.
-) (./autumn.tex [7
+[3
 
-] [8
+]) (./travel.tex [4]
+第\CJKnumber {2}章 2.
+) (./autumn.tex [5
 
 ]
 第\CJKnumber {3}章 3.
-[9]) (./school.tex [10]
+[6
+
+]) (./school.tex [7]
 第\CJKnumber {4}章 4.
-[11
+[8
 
-] [12] [13]) (./poetry.tex [14]
+] [9] [10]) (./poetry.tex [11]
 第\CJKnumber {5}章 5.
-) (./goodbye.tex [15
-
-] [16
+) (./goodbye.tex [12
 
 ]
 第\CJKnumber {6}章 6.
-) [17] (./poems.aux) ) 
+) [13
+
+] (./poems.aux) ) 
 Here is how much of TeX's memory you used:
- 17997 strings out of 493918
- 369559 string characters out of 6148599
- 409758 words of memory out of 5000000
- 21129 multiletter control sequences out of 15000+600000
+ 17998 strings out of 493918
+ 369572 string characters out of 6148599
+ 410763 words of memory out of 5000000
+ 21130 multiletter control sequences out of 15000+600000
  6576 words of font info for 48 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 52i,11n,55p,10425b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,11n,55p,10425b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on poems.pdf (17 pages).
+Output written on poems.pdf (14 pages).
