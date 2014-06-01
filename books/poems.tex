@@ -1,14 +1,26 @@
-\documentclass[11pt, a4paper,oneside]{book}
+\documentclass[10pt, b5paper,oneside]{book}
 \usepackage[slantfont,boldfont]{xeCJK}
 \usepackage{verse}
 \usepackage{CJKnumb}
 \usepackage{titlesec}
 \usepackage{titletoc}
 \usepackage{fancyhdr}
+\usepackage{fontspec}
 \usepackage[body={12.6cm, 20cm}, centering, dvipdfm]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \setCJKmainfont{SimSun}
 \setCJKmonofont{SimSun}
 \setCJKsansfont{SimHei}
+\setmonofont[Scale=0.8]{Monaco}
+%\newfontinstance\rmfont{Garamond}
+%\newcommand{\af}[1]{{\rmfont #1}}
 
 \pagestyle{fancy}
 \fancyhf{}                    
@@ -22,10 +34,11 @@
 
 \renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
 \renewcommand{\chaptermark}[1]{\markboth{~第~\CJKnumber{\thechapter}~章~~~#1~}{}}
-
-\titleformat{\chapter}[block]{\center\Huge}{\chaptername}{20pt}{}
-\titlespacing{\chapter}{0pt}{-20pt}{25pt}
 \newcommand{\hei}{\CJKfamily{hei}}
+
+\titleformat{\chapter}[block]{\center\LARGE\hei\textbf}{\chaptername}{20pt}{}
+\titlespacing{\chapter}{0pt}{-20pt}{25pt}
+
 
 
 \begin{document}
@@ -38,16 +51,22 @@
 \clearpage\maketitle
 \thispagestyle{empty}
 
+\vspace*{\fill} 
+\begin{quote} 
+\centering 
 所以，生活应该厚重，而非浅薄。人生应该淡薄，而非浓欲
+\end{quote}
+\vspace*{\fill}
 
 
 \tableofcontents
-\thispagestyle{empty}
+%\thispagestyle{empty}
 \mainmatter
 \input{my}
 \input{girls}
 \input{travel}
 \input{poetry}
+\input{moon}
 \input{autumn}
 \input{congrats}
 \input{school}
