@@ -1,3 +1,4 @@
 poems.aux
-poems.log
-poems.toc
+*.log
+*.toc
+*.out

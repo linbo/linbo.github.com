@@ -1,4 +1,4 @@
-\documentclass[10pt, b5paper,oneside]{book}
+\documentclass[11pt, a4paper,oneside]{book}
 \usepackage[slantfont,boldfont]{xeCJK}
 \usepackage{verse}
 \usepackage{CJKnumb}
@@ -8,6 +8,10 @@
 \usepackage{fontspec}
 \usepackage[body={12.6cm, 20cm}, centering, dvipdfm]{geometry}
 \usepackage{hyperref}
+
+\usepackage{indentfirst, setspace}
+
+
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -40,7 +44,6 @@
 \titlespacing{\chapter}{0pt}{-20pt}{25pt}
 
 
-
 \begin{document}
 
 \frontmatter
@@ -61,6 +64,15 @@
 
 
 \tableofcontents
+
+\onehalfspacing
+\addtolength{\parskip}{3pt}
+\setlength{\parindent}{2em}
+\input{acknowledgement}
+\input{preface}
+
+\singlespacing
+\setlength{\parskip}{0pt}
 %\thispagestyle{empty}
 \mainmatter
 \input{my}
