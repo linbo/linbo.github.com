@@ -1,0 +1,91 @@
+\documentclass[11pt, a4paper]{book}
+\usepackage[slantfont,boldfont]{xeCJK}
+\usepackage{CJKnumb}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{fontspec}
+\usepackage[body={12.6cm, 20cm}, centering, dvipdfm]{geometry}
+\usepackage{hyperref}
+
+\usepackage{indentfirst, setspace}
+
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\setCJKmainfont{SimSun}
+\setCJKmonofont{SimSun}
+\setCJKsansfont{SimHei}
+\setmonofont[Scale=0.8]{Monaco}
+%\newfontinstance\rmfont{Garamond}
+%\newcommand{\af}[1]{{\rmfont #1}}
+
+\pagestyle{fancy}
+\fancyhf{}                    
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyhead[LE,RO]{~\thepage~}
+\fancyfoot[RE,RO]{\it 岁月无痕}
+
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
+\renewcommand{\chaptermark}[1]{\markboth{~第~\CJKnumber{\thechapter}~章~~~#1~}{}}
+\renewcommand{\sectionmark}[1]{\markright{~\thesection~~#1~}{}}
+\newcommand{\hei}{\CJKfamily{hei}}
+
+\titleformat{\chapter}[block]{\center\LARGE\hei\textbf}{\chaptername}{20pt}{}
+\titlespacing{\chapter}{0pt}{-20pt}{25pt}
+
+\titleformat*{\section}{\centering}
+
+\begin{document}
+
+\frontmatter
+\renewcommand\contentsname{目录}
+\title{岁月无痕}
+\author{波心荡}
+\date{September 16，2014}
+
+\clearpage\maketitle
+\thispagestyle{empty}
+
+\vspace*{\fill} 
+\begin{quote} 
+\centering 
+不要假设昨天，不要承诺明天。因为，生活的秒针，永远滴答在今天
+\end{quote}
+\vspace*{\fill}
+\newpage
+
+
+\onehalfspacing
+\addtolength{\parskip}{3pt}
+\setlength{\parindent}{2em}
+\input{copyright}
+\singlespacing
+\setlength{\parskip}{0pt}
+\tableofcontents
+
+\onehalfspacing
+\addtolength{\parskip}{3pt}
+\setlength{\parindent}{2em}
+\input{acknowledgement}
+\input{preface}
+
+\singlespacing
+\setlength{\parskip}{0pt}
+%\thispagestyle{empty}
+\mainmatter
+\onehalfspacing
+\input{myself}
+\input{thanks}
+\input{book}
+\input{discuss}
+\end{document}
