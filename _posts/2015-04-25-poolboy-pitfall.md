@@ -20,11 +20,11 @@ new_worker(Sup) ->
     Pid.  
 ```
 
-可以看到，supervisor:start_child的时候是不能失败的，也就是说worker创建如果失败，会导致poolboy这个gen_server挂掉，导致整个进程池挂掉。
+可以看到，supervisor:start_child的时候是不能失败的，也就是说worker创建如果失败，会导致poolboy这个gen_server挂掉，导致整个进程池崩溃。
 
 这会有什么影响呢，我们看一下用poolboy管理[eredis](https://github.com/wooga/eredis/)的例子，参考其中的一个实现[eredis_pool](https://github.com/hiroeorz/eredis_pool/)。
 
-## eredis_pool 启动失败
+## 创建worker失败，pool无法启动
 
 看[eredis初始化](https://github.com/wooga/eredis/blob/master/src/eredis_client.erl#L83)代码，如果连接失败，eredis直接退出。如果用eredis_pool的话，当redis没有起来，或者某些其它原因导致eredis初始化失败(只要一次失败)，会导致eredis_pool无法正常启动。
 
@@ -32,7 +32,7 @@ new_worker(Sup) ->
 
 所以有人对eredis提了个 [issue](https://github.com/wooga/eredis/issues/44)，应该就是针对这个问题的。
 
-## 新增worker失败，eredis_pool 退出
+## 创建worker失败，pool异常退出
 
 具体可以看 [create_pool](https://github.com/hiroeorz/eredis_pool/blob/master/src/eredis_pool_sup.erl#L52)的代码。
 
@@ -51,7 +51,7 @@ new_worker(Sup) ->
 
 但是proxy有一个问题，那就是proxy进程里面的client不一定是正常的。看epgsql_pool和phoenix代码可以知道，proxy只保证自己创建的时候不会失败，至于它管理的client是不是正常的，只有在进行具体工作的时候，才可以知道。
 
-这个大部分情况也没有什么问题，当新建进程，如果client连接有问题时，只会影响本次的poolboy调用，但是不会导致进程池崩溃。
+这个大部分情况也没有什么问题，当新建worker，如果client连接有问题时，只会影响本次的poolboy调用，但是不会导致进程池崩溃。
 
 当然可以在proxy进程里面加个定时器，定时去检查client的连接情况，如果失败，尝试重新建链。
 
@@ -69,8 +69,9 @@ poolboy默认配置100个worker，当worker超过100时，会启用overflow数�
 
 换句话说，由于下面原因，导致正常的client被关闭，而不正常的client被保留。
 
-1. proxy不了解它管理的client是否正常
-2. 当进程启用overflow后，poolboy checkin会关闭worker  
+1. worker启动不能失败
+2. proxy不了解它管理的client是否正常
+3. 当进程启用overflow后，poolboy checkin会关闭worker  
 
 poolboy是一个简单，高效的进程池库，但是它对管理的worker有很严格的限制。例如管理redis client时，启动redis client不能失败，而且需要redis client自己管理链接，重连等等情况。即使采用proxy进程来管理redis client，仍然可能导致正常的redis client被关闭，而不正常的redis client存在pool中。
 
