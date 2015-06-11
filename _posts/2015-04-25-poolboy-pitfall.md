@@ -45,7 +45,7 @@ new_worker(Sup) ->
 ## 解决方法，加代理进程
 
 在poolboy和进程之间加一个proxy process，proxy创建时不会去尝试建链，只做一些很简单的工作，确保进程初始化可以成功。在进行具体操作时，再去尝试建链。这样可以避免前面的问题，可以看 [epgsql_pool](https://github.com/interline/epgsql_pool/)或者
-[phoenix](https://github.com/phoenixframework/phoenix/blob/master/lib/phoenix/pubsub/redis_conn.ex)，或者我们自己fork的[eredis_pool](https://github.com/yunba/eredis_pool)。
+[phoenix](https://github.com/phoenixframework/phoenix/blob/v0.13.0/lib/phoenix/pubsub/redis.ex)，或者我们自己fork的[eredis_pool](https://github.com/yunba/eredis_pool)。
 
 # proxy代理进程的问题
 
