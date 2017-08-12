@@ -7,7 +7,6 @@ tags:
     - Python
     - 工
 ---
-{% include JB/setup %}
 
 缘由：
 ---

@@ -7,7 +7,6 @@ tags:
     - tool
     - 工
 ---
-{% include JB/setup %}
 
 
 #程序员的丰满生活

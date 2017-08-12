@@ -8,7 +8,6 @@ tags:
     - 工
     - tool
 ---
-{% include JB/setup %}
 
 [Supervisor](http://supervisord.org/)是一个Python开发的client/server系统，可以管理和监控***nix**上面的进程。不过同[daemontools](http://linbo.org/blog/2013/02/24/daemontools/)一样，**它也不能监控daemon进程**
 

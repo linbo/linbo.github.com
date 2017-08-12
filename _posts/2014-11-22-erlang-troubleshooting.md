@@ -6,7 +6,6 @@ category: IT
 tags: 
     - erlang
 ---
-{% include JB/setup %}
 
 随着项目越来越依赖Erlang，碰到的问题也随之增加。前段时间线上系统碰到内存高消耗问题，记录一下troubleshooting的分析过程。线上系统用的是Erlang R16B02版本。
 

@@ -7,7 +7,6 @@ tags:
     - tool
     - 工
 ---
-{% include JB/setup %}
 
 [Daemontools](http://cr.yp.to/daemontools.html)是管理Unix服务的工具，它提供一组工具来管理一系列用户进程，当进程由于某些原因down掉之后，daemontools会自动重启进程
 

@@ -6,7 +6,6 @@ category: IT
 tags: 
     - ubuntu
 ---
-{% include JB/setup %}
 
 换了一台电脑，直接装了个Ubuntu 12.04 LTS。嫌原来Ubuntu自带的unity不好用，换成Gnome-Shell 3.4，感觉比unity清爽多了。
 

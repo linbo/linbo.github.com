@@ -6,7 +6,6 @@ category: IT
 tags:
     - erlang
 ---
-{% include JB/setup %}
 
 [poolboy](https://github.com/devinus/poolboy)是Erlang中运用非常广泛的进程池库，它有很多优点，使用简单，在很多项目中都能看到它的身影。不过，它也有一些坑，使用时候需要注意。（本文对poolboy的分析基于[1.5.1](https://github.com/devinus/poolboy/blob/1.5.1/src/poolboy.erl)版本）
 

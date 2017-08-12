@@ -8,7 +8,6 @@ tags:
     - nodejs
     - profiling
 ---
-{% include JB/setup %}
 
 最近玩一下Node.js，于是乎碰到一个性能问题(悲催，老是碰到性能问题)，研究了一下怎么做Profiling。忙活了好久，终于看到Output了，欢呼雀跃一下
 

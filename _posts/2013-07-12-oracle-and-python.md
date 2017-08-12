@@ -8,7 +8,6 @@ tags:
     - Python
     - Database
 ---
-{% include JB/setup %}
 
 对Oracle真的是一窍不通啊，不过最近正好有机会，用Python处理Oracle数据，于是记一下做过的事情(Linux版本是Centos 6.3 X64)
 

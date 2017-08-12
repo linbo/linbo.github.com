@@ -9,7 +9,6 @@ tags:
     - 工
     - ruby
 ---
-{% include JB/setup %}
 
 如果你是Virtualbox的用户，那么[Vagrant](http://www.vagrantup.com/ "Vagrant")绝对值得一看。Vagrant是用ruby写的工具，封装了VirtualBox一些操作，通过几条命令，一个配置文件，可以很方便的部署你想要的虚拟机。
 

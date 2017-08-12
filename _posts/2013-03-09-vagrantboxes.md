@@ -8,7 +8,6 @@ tags:
     - tool
     - 工
 ---
-{% include JB/setup %}
 
 
 # box存放在哪里？

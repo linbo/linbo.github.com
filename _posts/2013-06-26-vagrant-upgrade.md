@@ -8,7 +8,6 @@ tags:
     - tool
     - 工
 ---
-{% include JB/setup %}
 
 Vagrant 1.x出现有一段时间了，看了一下，增加了VMware和AWS(以custom plugin形式提供)的Provider，看来Vagrant功能越来越强大了。
 

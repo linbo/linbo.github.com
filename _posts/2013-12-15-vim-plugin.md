@@ -7,7 +7,6 @@ tags:
     - vim
     - tool
 ---
-{% include JB/setup %}
 
 一直有IDE恐惧症，在大学的时候用Visual Studio，也玩过Eclipse，Netbeans。每次打开这些巨兽时，似乎都要洗身净手，正襟危坐，泡一杯茶，养一会儿神，等IDE启动后，才开始工作。毕业后，甚幸工作的环境是Linux，所以自然而然的接触了Vim。现在想想，估计还是当年我电脑太垃圾了，而那些IDE胃口又太大了，以致我失去了耐心。
 
