@@ -120,6 +120,105 @@ struct cpu {
   ltr(SEG_TSS << 3);
   lcr3(V2P(p->pgdir));  // switch to process's address space
 ```
+
+这里载入了进程的页表，为什么后面代码还能继续运行呢？因为对于内核物理内存，在内核的地址空间和进程地址空间，都被映射到相同的地方，即从 `0x08100000 ~ 0xFFFFFFFF`
+
+没有切换页表前
+
+```nasm
+(qemu) info registers
+EAX=80114e74 EBX=00010074 ECX=80114e40 EDX=00000000
+ESI=00000000 EDI=001178c8 EBP=8010d628 ESP=8010d600
+EIP=80104aae EFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+CS =0008 00000000 ffffffff 00cf9a00 DPL=0 CS32 [-R-]
+SS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+DS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+FS =0000 00000000 00000000 00000000
+GS =0018 801148f4 00000fff 00c09300 DPL=0 DS   [-WA]
+LDT=0000 00000000 0000ffff 00008200 DPL=0 LDT
+TR =0000 00000000 0000ffff 00008b00 DPL=0 TSS32-busy
+GDT=     801148b0 00000037
+IDT=     801170c0 000007ff
+CR0=80010011 CR2=00000000 CR3=003ff000 CR4=00000010
+...
+(qemu) info pg
+VPN range     Entry         Flags        Physical page
+[80000-803ff]  PDE[200]     ----A--UWP
+  [80000-80000]  PTE[000]     ----A---WP 00000
+  [80001-80006]  PTE[001-006] --------WP 00001-00006
+  [80007-80007]  PTE[007]     ---DA---WP 00007
+  [80008-8009e]  PTE[008-09e] --------WP 00008-0009e
+  [8009f-8009f]  PTE[09f]     ----A---WP 0009f
+  [800a0-800b7]  PTE[0a0-0b7] --------WP 000a0-000b7
+  [800b8-800b8]  PTE[0b8]     ---DA---WP 000b8
+  [800b9-800ef]  PTE[0b9-0ef] --------WP 000b9-000ef
+  [800f0-800f1]  PTE[0f0-0f1] ----A---WP 000f0-000f1
+  [800f2-800ff]  PTE[0f2-0ff] --------WP 000f2-000ff
+  [80100-80108]  PTE[100-108] ----A----P 00100-00108
+  [80109-80109]  PTE[109]     ---------P 00109
+  [8010a-8010a]  PTE[10a]     ----A---WP 0010a
+  [8010b-8010b]  PTE[10b]     --------WP 0010b
+  [8010c-80112]  PTE[10c-112] ---DA---WP 0010c-00112
+  [80113-80113]  PTE[113]     ----A---WP 00113
+  [80114-80114]  PTE[114]     ---DA---WP 00114
+  [80115-80116]  PTE[115-116] ----A---WP 00115-00116
+  [80117-80117]  PTE[117]     ---DA---WP 00117
+  [80118-803ff]  PTE[118-3ff] --------WP 00118-003ff
+[80400-8dfff]  PDE[201-237] ----A--UWP
+  [80400-8dfff]  PTE[000-3ff] ---DA---WP 00400-0dfff
+[fe000-febff]  PDE[3f8-3fa] -------UWP
+  [fe000-febff]  PTE[000-3ff] --------WP fe000-febff
+[fec00-fefff]  PDE[3fb]     ----A--UWP
+  [fec00-fec00]  PTE[000]     ---DA---WP fec00
+  [fec01-fedff]  PTE[001-1ff] --------WP fec01-fedff
+  [fee00-fee00]  PTE[200]     ---DA---WP fee00
+  [fee01-fefff]  PTE[201-3ff] --------WP fee01-fefff
+[ff000-fffff]  PDE[3fc-3ff] -------UWP
+  [ff000-fffff]  PTE[000-3ff] --------WP ff000-fffff
+```
+
+切换页表后，`CR3` 变化了，但是页表映射内核的部分没有变化
+
+```nasm
+(qemu) info registers
+EAX=00000001 EBX=00010074 ECX=00000040 EDX=00000001
+ESI=00000000 EDI=001178c8 EBP=8010d628 ESP=8010d600
+EIP=80104ab9 EFL=00000082 [--S----] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+CS =0008 00000000 ffffffff 00cf9a00 DPL=0 CS32 [-R-]
+SS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+DS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
+FS =0000 00000000 00000000 00000000
+GS =0018 801148f4 00000fff 00c09300 DPL=0 DS   [-WA]
+LDT=0000 00000000 0000ffff 00008200 DPL=0 LDT
+TR =0030 80114848 00000067 00408900 DPL=0 TSS32-avl
+GDT=     801148b0 00000037
+IDT=     801170c0 000007ff
+CR0=80010011 CR2=00000000 CR3=0dffe000 CR4=00000010
+...
+(qemu) info pg
+VPN range     Entry         Flags        Physical page
+[00000-003ff]  PDE[000]     -------UWP
+  [00000-00000]  PTE[000]     -------UWP 0dfbd
+[80000-803ff]  PDE[200]     ----A--UWP
+  [80000-800ff]  PTE[000-0ff] --------WP 00000-000ff
+  [80100-80103]  PTE[100-103] ---------P 00100-00103
+  [80104-80105]  PTE[104-105] ----A----P 00104-00105
+  [80106-80106]  PTE[106]     ---------P 00106
+  [80107-80108]  PTE[107-108] ----A----P 00107-00108
+  [80109-80109]  PTE[109]     ---------P 00109
+  [8010a-8010c]  PTE[10a-10c] --------WP 0010a-0010c
+  [8010d-8010d]  PTE[10d]     ---DA---WP 0010d
+  [8010e-80113]  PTE[10e-113] --------WP 0010e-00113
+  [80114-80114]  PTE[114]     ---DA---WP 00114
+  [80115-803ff]  PTE[115-3ff] --------WP 00115-003ff
+[80400-8dfff]  PDE[201-237] -------UWP
+  [80400-8dfff]  PTE[000-3ff] --------WP 00400-0dfff
+[fe000-fffff]  PDE[3f8-3ff] -------UWP
+  [fe000-fffff]  PTE[000-3ff] --------WP fe000-fffff
+```  
+
 ## 调度
 `swtch` 调用的是 `swtch.S` 的汇编代码，因为 `swtch` 是函数调用，所以内核堆栈会把参数和 `eip` 压栈，然后跳转到 `swtch.S` 代码处。
 
