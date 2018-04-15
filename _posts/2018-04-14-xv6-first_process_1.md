@@ -121,25 +121,53 @@ struct cpu {
   lcr3(V2P(p->pgdir));  // switch to process's address space
 ```
 
+
 这里载入了进程的页表，为什么后面代码还能继续运行呢？因为对于内核物理内存，在内核的地址空间和进程地址空间，都被映射到相同的地方，即从 `0x08100000 ~ 0xFFFFFFFF`
 
-没有切换页表前
+### 内核初始页表
+先看看内核初始页表内容
 
-```nasm
+```bash
+(gdb) b 22
+Breakpoint 1 at 0x801038ab: file main.c, line 22.
+(gdb) c
+Continuing.
+The target architecture is assumed to be i386
+=> 0x801038ab <main+34>:	call   0x80103cae <mpinit>
+
+Breakpoint 1, main () at main.c:22
+22	  mpinit();        // detect other processors
+```
+
+```bash
+(qemu) info pg
+VPN range     Entry         Flags        Physical page
+[80000-803ff]  PDE[200]     ----A--UWP
+  [80000-800ff]  PTE[000-0ff] --------WP 00000-000ff
+  [80100-80102]  PTE[100-102] ---------P 00100-00102
+  [80103-80103]  PTE[103]     ----A----P 00103
+  [80104-80106]  PTE[104-106] ---------P 00104-00106
+  [80107-80108]  PTE[107-108] ----A----P 00107-00108
+  [80109-80109]  PTE[109]     ---------P 00109
+  [8010a-8010c]  PTE[10a-10c] --------WP 0010a-0010c
+  [8010d-8010d]  PTE[10d]     ----A---WP 0010d
+  [8010e-803ff]  PTE[10e-3ff] --------WP 0010e-003ff
+[80400-8dfff]  PDE[201-237] -------UWP
+  [80400-8dfff]  PTE[000-3ff] --------WP 00400-0dfff
+[fe000-fffff]  PDE[3f8-3ff] -------UWP
+  [fe000-fffff]  PTE[000-3ff] --------WP fe000-fffff
 (qemu) info registers
-EAX=80114e74 EBX=00010074 ECX=80114e40 EDX=00000000
-ESI=00000000 EDI=001178c8 EBP=8010d628 ESP=8010d600
-EIP=80104aae EFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
-ES =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
-CS =0008 00000000 ffffffff 00cf9a00 DPL=0 CS32 [-R-]
-SS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
-DS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
-FS =0000 00000000 00000000 00000000
-GS =0018 801148f4 00000fff 00c09300 DPL=0 DS   [-WA]
-LDT=0000 00000000 0000ffff 00008200 DPL=0 LDT
-TR =0000 00000000 0000ffff 00008b00 DPL=0 TSS32-busy
-GDT=     801148b0 00000037
-IDT=     801170c0 000007ff
+...
+CR0=80010011 CR2=00000000 CR3=003ff000 CR4=00000010 
+...
+```
+
+### 没有切换页表前
+在调用 `vm.c:switchuvm()` 前，可以看到页表很多熟悉已经被改变了，有些被访问过了(A被置位)，有些页面已经被修改(D被置位)
+
+```bash
+(qemu) info registers
+...
 CR0=80010011 CR2=00000000 CR3=003ff000 CR4=00000010
 ...
 (qemu) info pg
@@ -178,23 +206,12 @@ VPN range     Entry         Flags        Physical page
   [ff000-fffff]  PTE[000-3ff] --------WP ff000-fffff
 ```
 
-切换页表后，`CR3` 变化了，但是页表映射内核的部分没有变化
+###切换页表后
+`CR3` 变化了，但是页表映射内核的部分没有变化，而且页表属性和内核初始化页表差不多。
 
-```nasm
+```bash
 (qemu) info registers
-EAX=00000001 EBX=00010074 ECX=00000040 EDX=00000001
-ESI=00000000 EDI=001178c8 EBP=8010d628 ESP=8010d600
-EIP=80104ab9 EFL=00000082 [--S----] CPL=0 II=0 A20=1 SMM=0 HLT=0
-ES =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
-CS =0008 00000000 ffffffff 00cf9a00 DPL=0 CS32 [-R-]
-SS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
-DS =0010 00000000 ffffffff 00cf9300 DPL=0 DS   [-WA]
-FS =0000 00000000 00000000 00000000
-GS =0018 801148f4 00000fff 00c09300 DPL=0 DS   [-WA]
-LDT=0000 00000000 0000ffff 00008200 DPL=0 LDT
-TR =0030 80114848 00000067 00408900 DPL=0 TSS32-avl
-GDT=     801148b0 00000037
-IDT=     801170c0 000007ff
+...
 CR0=80010011 CR2=00000000 CR3=0dffe000 CR4=00000010
 ...
 (qemu) info pg
